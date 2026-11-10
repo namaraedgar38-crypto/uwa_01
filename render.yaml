@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: uwa-01
+    runtime: python
+    plan: free
+    buildCommand: ./build.sh
+    startCommand: cd UWA && gunicorn UWA.wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.4
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://*.onrender.com
