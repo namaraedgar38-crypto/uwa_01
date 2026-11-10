@@ -1,0 +1,11 @@
+{% extends 'UWAapp/base.html' %}
+{% block title %}{{ park.name }} — Uganda Wildlife Authority{% endblock %}
+{% block content %}
+<section class="detail-hero" style="--detail-image: url('https://images.unsplash.com/{{ park.image }}?auto=format&fit=crop&w=2000&q=90')">
+  <div class="page-hero-shade"></div><div class="detail-hero-content"><a class="back-link" href="{% url 'UWAapp:destinations' %}">← All destinations</a><span class="eyebrow eyebrow-light"><span class="eyebrow-line"></span>{{ park.type }}</span><h1>{{ park.name }}</h1><p>{{ park.location }}</p></div>
+</section>
+<section class="detail-section section-wrap">
+  <div class="detail-intro"><span class="eyebrow">A PLACE TO DISCOVER</span><p>{{ park.description }}</p><a class="button button-dark" href="{% url 'UWAapp:plan' %}">Plan your visit <span aria-hidden="true">↗</span></a></div>
+  <div class="detail-highlights"><h2>Make time for</h2>{% for highlight in park.highlights %}<div class="highlight-row"><span>0{{ forloop.counter }}</span><strong>{{ highlight }}</strong><span aria-hidden="true">↗</span></div>{% endfor %}<p>Experiences and access may change. Confirm current details with Uganda Wildlife Authority before travel.</p></div>
+</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'UWAapp/base.html' %}
+{% block title %}Uganda Wildlife Authority — Discover the wild heart of Africa{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-image" role="img" aria-label="An elephant in the Ugandan wilderness"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-content">
+    <span class="eyebrow eyebrow-light"><span class="eyebrow-line"></span>THE PEARL OF AFRICA</span>
+    <h1>Find your<br><em>wild.</em></h1>
+    <p>From ancient rainforests to open savannah, discover the extraordinary wildlife and wild places of Uganda.</p>
+    <div class="hero-actions"><a class="button button-lime" href="{% url 'UWAapp:destinations' %}">Explore destinations <span aria-hidden="true">↗</span></a><a class="text-link text-link-light" href="{% url 'UWAapp:about' %}">Our conservation work <span aria-hidden="true">→</span></a></div>
+  </div>
+  <div class="hero-caption"><span class="caption-dot"></span> WILD PLACES. SHARED FUTURE.</div>
+  <a class="scroll-cue" href="#discover" aria-label="Scroll to discover"><span></span></a>
+</section>
+
+<section class="intro-section section-wrap" id="discover">
+  <div class="intro-label"><span class="eyebrow">A COUNTRY ALIVE</span><span class="intro-number">01 / 04</span></div>
+  <div class="intro-copy"><h2>One small country.<br><em>A world of wild.</em></h2><p>Where the forests meet the savannah and the Nile begins its long journey north, Uganda holds a remarkable variety of wildlife and landscapes. We work to protect this natural heritage — today, and for generations to come.</p><a class="text-link" href="{% url 'UWAapp:about' %}">Get to know UWA <span aria-hidden="true">→</span></a></div>
+  <div class="intro-stamp" aria-hidden="true"><span>U</span><small>PROTECT<br>WHAT IS<br>WILD</small></div>
+</section>
+
+<section class="destinations-section">
+  <div class="section-wrap">
+    <div class="section-heading"><div><span class="eyebrow"><span class="eyebrow-line"></span>GO BEYOND THE ORDINARY</span><h2>Wild places<br><em>to remember.</em></h2></div><a class="text-link" href="{% url 'UWAapp:destinations' %}">View all destinations <span aria-hidden="true">↗</span></a></div>
+    <div class="park-grid">
+      {% for park in parks %}
+      <a class="park-card" href="{% url 'UWAapp:destination-detail' park.slug %}">
+        <div class="park-photo" style="--park-image: url('https://images.unsplash.com/{{ park.image }}?auto=format&fit=crop&w=1000&q=85')"><span class="park-type">{{ park.type }}</span><span class="park-arrow" aria-hidden="true">↗</span></div>
+        <div class="park-info"><span>{{ park.location }}</span><h3>{{ park.name }}</h3><p>{{ park.summary }}</p><span class="card-link">Discover this place <span aria-hidden="true">→</span></span></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="conservation-band">
+  <div class="conservation-photo" role="img" aria-label="A green forest canopy"></div>
+  <div class="conservation-copy"><span class="eyebrow eyebrow-light"><span class="eyebrow-line"></span>OUR SHARED RESPONSIBILITY</span><h2>Nature needs<br><em>all of us.</em></h2><p>Conservation is more than protecting wildlife. It is about people, places and finding ways for all life to thrive together.</p><a class="button button-lime" href="{% url 'UWAapp:conservation' %}">Discover our work <span aria-hidden="true">↗</span></a></div>
+  <span class="band-note">TOGETHER FOR WILDLIFE</span>
+</section>
+
+<section class="visit-section section-wrap">
+  <div class="visit-photo"></div>
+  <div class="visit-copy"><span class="eyebrow"><span class="eyebrow-line"></span>COME CLOSER, TREAD LIGHTLY</span><h2>Make your visit<br><em>mean more.</em></h2><p>Whether you’re planning a forest trek or a savannah safari, responsible travel helps keep Uganda’s wild places thriving.</p><a class="text-link" href="{% url 'UWAapp:plan' %}">Plan a thoughtful trip <span aria-hidden="true">→</span></a></div>
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153a2c">
+  <meta name="description" content="Discover Uganda's wildlife, protected areas and responsible travel experiences with Uganda Wildlife Authority.">
+  <title>{% block title %}Uganda Wildlife Authority — Wild Uganda{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'UWAapp/site.css' %}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topline"><span>UGANDA WILDLIFE AUTHORITY</span><span>Conserving wildlife. Sustaining our shared future.</span></div>
+  <header class="site-header">
+    <a class="brand" href="{% url 'UWAapp:home' %}" aria-label="Uganda Wildlife Authority home">
+      <span class="brand-mark" aria-hidden="true">U<span>W</span>A</span>
+      <span class="brand-copy"><strong>UGANDA</strong><small>WILDLIFE AUTHORITY</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span></span><span></span></button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+      <a href="{% url 'UWAapp:home' %}">Home</a>
+      <a href="{% url 'UWAapp:about' %}">About</a>
+      <a href="{% url 'UWAapp:destinations' %}">Destinations</a>
+      <a href="{% url 'UWAapp:conservation' %}">Conservation</a>
+      <a href="{% url 'UWAapp:plan' %}">Plan your visit</a>
+      <a class="nav-cta" href="{% url 'UWAapp:contact' %}">Get in touch <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand brand-light" href="{% url 'UWAapp:home' %}">
+          <span class="brand-mark" aria-hidden="true">U<span>W</span>A</span>
+          <span class="brand-copy"><strong>UGANDA</strong><small>WILDLIFE AUTHORITY</small></span>
+        </a>
+        <p>Protecting Uganda’s wild places and the life they sustain.</p>
+      </div>
+      <div><h2>Explore</h2><a href="{% url 'UWAapp:about' %}">About UWA</a><a href="{% url 'UWAapp:destinations' %}">National parks</a><a href="{% url 'UWAapp:conservation' %}">Conservation</a></div>
+      <div><h2>Plan</h2><a href="{% url 'UWAapp:plan' %}">Visitor information</a><a href="{% url 'UWAapp:contact' %}">Contact UWA</a><a href="https://ugandawildlife.org/" target="_blank" rel="noopener noreferrer">Official UWA website ↗</a></div>
+    </div>
+    <div class="footer-bottom"><span>© {% now "Y" %} Uganda Wildlife Authority</span><span>Wildlife is our shared heritage.</span></div>
+  </footer>
+  <script src="{% static 'UWAapp/site.js' %}" defer></script>
+</body>
+</html>

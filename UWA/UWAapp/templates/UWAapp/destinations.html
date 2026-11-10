@@ -1,0 +1,20 @@
+{% extends 'UWAapp/base.html' %}
+{% block title %}Explore Uganda’s National Parks — Uganda Wildlife Authority{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-parks">
+  <div class="page-hero-image"></div><div class="page-hero-shade"></div>
+  <div class="page-hero-content"><span class="eyebrow eyebrow-light"><span class="eyebrow-line"></span>THE WILD IS CLOSER THAN YOU THINK</span><h1>Find your<br><em>kind of wild.</em></h1><p>Rainforest trails, open plains and the power of the Nile. Find a destination that stays with you.</p></div>
+</section>
+<section class="directory-section section-wrap">
+  <div class="directory-heading"><div><span class="eyebrow">UGANDA, YOUR WAY</span><h2>Explore the destinations</h2></div><span class="destination-count">FEATURED PLACES <strong>06</strong></span></div>
+  <div class="park-grid directory-grid">
+    {% for park in parks %}
+    <a class="park-card" href="{% url 'UWAapp:destination-detail' park.slug %}">
+      <div class="park-photo" style="--park-image: url('https://images.unsplash.com/{{ park.image }}?auto=format&fit=crop&w=1000&q=85')"><span class="park-type">{{ park.type }}</span><span class="park-arrow" aria-hidden="true">↗</span></div>
+      <div class="park-info"><span>{{ park.location }}</span><h3>{{ park.name }}</h3><p>{{ park.summary }}</p><span class="card-link">Discover this place <span aria-hidden="true">→</span></span></div>
+    </a>
+    {% endfor %}
+  </div>
+  <p class="directory-note">For current park access, activity availability, permits and fees, check with Uganda Wildlife Authority before travel.</p>
+</section>
+{% endblock %}
