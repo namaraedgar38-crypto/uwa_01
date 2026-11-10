@@ -3,9 +3,8 @@ services:
     name: uwa-01
     runtime: python
     plan: free
-    rootDir: UWA
-    buildCommand: ./build.sh
-    startCommand: gunicorn UWA.wsgi:application
+    buildCommand: cd UWA && ./build.sh
+    startCommand: cd UWA && gunicorn UWA.wsgi:application
     envVars:
       - key: PYTHON_VERSION
         value: 3.13.4
