@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(BASE_DIR.parent / ".env")
 load_dotenv(BASE_DIR / ".env")
 
 
@@ -33,16 +34,22 @@ if not SECRET_KEY:
     )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False").lower() in {"true", "1", "yes", "on"}
 
 ALLOWED_HOSTS = [
-    ".onrender.com",
-    "localhost",
-    "127.0.0.1"
+    host.strip()
+    for host in os.getenv(
+        "ALLOWED_HOSTS", ".onrender.com,localhost,127.0.0.1"
+    ).split(",")
+    if host.strip()
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://*.onrender.com",
+    origin.strip()
+    for origin in os.getenv(
+        "CSRF_TRUSTED_ORIGINS", "http://*.onrender.com"
+    ).split(",")
+    if origin.strip()
 ]
 
 
