@@ -18,10 +18,11 @@ a { color: inherit; }
 .skip-link:focus { top: 12px; }
 .topline { height: 32px; padding: 0 7.1%; display: flex; justify-content: space-between; align-items: center; color: #d9e2d9; background: var(--forest-deep); font-size: 9px; letter-spacing: .13em; }
 .site-header { position: relative; z-index: 10; height: 82px; padding: 0 7.1%; display: flex; align-items: center; justify-content: space-between; background: #fff; }
+.site-nav { width: 100%; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; gap: 11px; align-items: center; text-decoration: none; }
-.brand-logo { display: block; width: 30px; height: 30px; object-fit: contain; }
+.brand-logo { display: block; width: 40px; height: 48px; object-fit: contain; }
 .primary-nav { display: flex; align-items: center; gap: clamp(18px, 2.5vw, 37px); }
-.primary-nav a { color: #334138; font-size: 11px; text-decoration: none; transition: color .2s ease; }
+.primary-nav a { color: #334138; font-size: 14px; text-decoration: none; transition: color .2s ease; }
 .primary-nav a:hover, .primary-nav a:focus-visible { color: #7d922e; }
 .primary-nav .nav-cta { padding: 13px 17px; color: white; background: var(--forest); }
 .nav-cta span { padding-left: 12px; color: var(--lime); }
@@ -165,7 +166,7 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
 @media (max-width: 900px) {
   .topline, .site-header { padding-right: 5%; padding-left: 5%; }
   .primary-nav { gap: 17px; }
-  .primary-nav a { font-size: 10px; }
+  .primary-nav a { font-size: 13px; }
   .section-wrap, .page-hero-content, .conservation-copy, .detail-hero-content { width: 90%; }
   .park-grid { gap: 15px; }
   .park-photo { height: 190px; }
@@ -183,7 +184,7 @@ h1 em, h2 em { font-weight: 500; color: var(--lime); }
   .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
   .primary-nav { position: absolute; top: 69px; right: 0; left: 0; padding: 10px 5% 22px; display: none; align-items: stretch; gap: 0; background: #fff; box-shadow: 0 12px 18px rgba(20,40,28,.12); }
   .primary-nav.is-open { display: flex; flex-direction: column; }
-  .primary-nav a { padding: 13px 0; border-bottom: 1px solid #eceee7; font-size: 12px; }
+  .primary-nav a { padding: 13px 0; border-bottom: 1px solid #eceee7; font-size: 14px; }
   .primary-nav .nav-cta { margin-top: 11px; padding: 14px; border: 0; text-align: center; }
   .hero { height: 690px; min-height: 570px; max-height: 84svh; }
   .hero-image { background-position: 58% center; }
